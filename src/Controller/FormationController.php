@@ -54,6 +54,7 @@ class FormationController extends AbstractController
     public function afficheFormation()
     {
         $formations =  $this->getDoctrine()->getRepository(Formation::class)->findAll();
+        
         if (!$formations) {
             $message = "Pas d'Employés";
         }
@@ -71,6 +72,7 @@ class FormationController extends AbstractController
     {
         
         $formationsE =  $this->getDoctrine()->getRepository(Formation::class)->findAll();
+        // $formationInscrit=$this->getDoctrine()->getRepository(Inscription::class)->findBy(['employe ' => $employeId , 'statut'=> array('E','A')] );
         if (!$formationsE) {
             $message = "Pas d'Employés";
         }
@@ -104,6 +106,7 @@ class FormationController extends AbstractController
         
         $formation = $this->getDoctrine()->getRepository(Formation::class)->find($id);
         $employe = $this->getDoctrine()->getRepository(Employe::class)->find($employeId);
+      
 
         $inscription= new Inscription();
         $inscription->setStatut("E");
@@ -116,6 +119,8 @@ class FormationController extends AbstractController
 
         return $this->redirectToRoute('app_affEmploye');
     }
+
+
 
      /** 
      * @Route("/accepterFormation", name="app_accepter_form")

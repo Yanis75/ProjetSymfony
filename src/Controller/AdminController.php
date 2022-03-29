@@ -67,4 +67,12 @@ class AdminController extends AbstractController
         $managerA->flush();
         return $this->redirectToRoute('afficherInscriptionPublic');
     }
+
+    /**
+     * @Route("/stats", name="stats")
+     */
+    public function statistiques(){
+        return $this->render('admin/stats.html.twig');
+    }
+
 }

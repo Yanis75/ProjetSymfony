@@ -29,7 +29,7 @@ class ConnexionController extends AbstractController
         $formulaireConnexion = $this->createFormBuilder($unEmploye)
                             ->add('login',TextType::class,['label'=>'identifiant'])
                             ->add('mdp', PasswordType::class,['label'=>'mot de passe'])
-                            ->add('submit',leType\SubmitType::class)
+                            ->add('Connecter',leType\SubmitType::class)
                             ->getForm();
         $formulaireConnexion->handleRequest($request);
 
